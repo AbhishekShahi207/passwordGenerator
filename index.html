@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+    <h1>Generate a Strong <br>Random Password</h1>
+    <div class="display">
+        <input class="inp" type="text" id="password" placeholder="Password....">
+       <img src="image/coyp1.png" alt="" class="img" height="20px" widht="20px" onclick="copy()"><br>
+    </div>
+    <button class="btn" onclick="createPassword()">Generate Password</button>
+
+</div>
+<script>
+   
+const passBox=document.getElementById("password");
+const lenght=8;
+const upperCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const lowerCase="abcdefghijklmnopqrstuvwxyz";
+const number="0123456789"
+const symbol="@!#$%&"
+
+
+const createPassword=()=>{
+    let password="";
+    password+=upperCase[Math.floor(Math.random() * upperCase.length)]
+    password+=lowerCase[Math.floor(Math.random() * lowerCase.length)]
+    password+=number[Math.floor(Math.random() * number.length)]
+    password+=symbol[Math.floor(Math.random() * symbol.length)]
+    password+=number[Math.floor(Math.random() * number.length)]
+    password+=lowerCase[Math.floor(Math.random() * lowerCase.length)]
+    password+=symbol[Math.floor(Math.random() * symbol.length)]
+    password+=upperCase[Math.floor(Math.random() * upperCase.length)]
+passBox.value=password;
+
+}
+const copy=()=>{
+    passBox.select();
+    navigator.clipboard.writeText(passBox.value)
+    alert("Text copied Successfully")
+}
+
+
+</script>
+</body>
+</html>
